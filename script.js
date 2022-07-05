@@ -27,7 +27,6 @@ const getRandomInt = () => {
 }
 
 const computerPlay = () => {
- 
     // create this logic somewhere else 
    const computerTurn = getRandomInt();
     console.log(computerTurn);
@@ -40,10 +39,53 @@ const computerPlay = () => {
    }
 }
 
+
+
 const playRound = () => {
     const computerSelection = getRandomInt();
     let playerSelection = prompt("Rock, Paper or Scissors?");
     //create a function to look at the strings.
-    let playerValue = playerSelection.toLowerCase();
+    let playerValue = playerSelection.toLowerCase().replace("0", "o").replace(" ", "");
+    if(playerValue === "rock") {
+        console.log('You entered ' + playerValue + ', which is rock!');
+        if(computerSelection == 0) {
+            console.log('Tie! Bot selected Rock!')
+        } else if (computerSelection == 1) {
+            console.log('Bot wins! Bot selected Paper.')
+        } else {
+            console.log("You win! Bot selected Scissors.")
+        }
+
+
+    } else if(playerValue === "paper") {
+        console.log('You entered '+ playerValue + ', which is paper!');
+        if(computerSelection == 0) {
+            console.log('You win! The bot selected Rock.')
+        } else if (computerSelection == 1) {
+            console.log('Tie! Bot selected Paper.')
+        } else {
+            console.log("Bot wins! It selected Scissors. ")
+        }
+
+    } else if (playerValue === "scissors") {
+        console.log('You entered ' + playerValue + ', which is scissors!')
+        if(computerSelection == 0) {
+            console.log('Bot wins! It selected Rock.')
+        } else if (computerSelection == 1) {
+            console.log('You win! Bot selected Paper.')
+        } else {
+            console.log("Tie! Bot selected Scissors.")
+        }
+    } else {    
+        console.log("You did not enter a good input! " + playerValue);
+    }
     console.log(playerValue);
+    console.log(computerSelection)
+}
+
+
+const game = () => {
+    for (i = 0; i < 5; i++) {
+        playRound();
+    }
 }
