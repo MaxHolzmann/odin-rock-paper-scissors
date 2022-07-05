@@ -18,6 +18,11 @@ Scissors Beats paper
 After a single game, code for multiple games using a for loop.
 I will begin this after finishing a single game. 
 
+
+-- TO DO --
+- add log for prompt response of cancel
+-"best of 3"
+
 */ 
 
 const getRandomInt = () => {
@@ -26,26 +31,23 @@ const getRandomInt = () => {
     return Math.floor(Math.random() * (max - min) + min)
 }
 
-const computerPlay = () => {
-    // create this logic somewhere else 
-   const computerTurn = getRandomInt();
-    console.log(computerTurn);
-   if(computerTurn == 0) {
-    console.log("rock")
-   } else if (computerTurn == 1) {
-    console.log("paper")
-   } else if (computerTurn == 2) {
-    console.log("scissors")
-   }
-}
-
-
-
 const playRound = () => {
     const computerSelection = getRandomInt();
     let playerSelection = prompt("Rock, Paper or Scissors?");
-    //create a function to look at the strings.
+    //fix string for any basic misinputs.
     let playerValue = playerSelection.toLowerCase().replace("0", "o").replace(" ", "");
+
+    /* 
+    I used the Math.random() function to randomly generate numbers 0-2
+    This gives 3 options for the "computer player" to select, each number
+    corresponding with rock, paper or scissors.
+
+    Rock = 0
+    Paper = 1
+    Scissors = 2
+
+    */
+
     if(playerValue === "rock") {
         console.log('You entered ' + playerValue + ', which is rock!');
         if(computerSelection == 0) {
