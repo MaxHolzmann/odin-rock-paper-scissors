@@ -34,7 +34,6 @@ const getRandomInt = () => {
 const playRound = () => {
     const computerSelection = getRandomInt();
     let playerSelection = prompt("Rock, Paper or Scissors?");
-    //fix string for any basic misinputs.
     let playerValue = playerSelection.toLowerCase().replace("0", "o").replace(" ", "");
 
     /* 
@@ -81,8 +80,6 @@ const playRound = () => {
     } else {    
         console.log("You did not enter a good input! " + playerValue);
     }
-    console.log(playerValue);
-    console.log(computerSelection)
 }
 
 
