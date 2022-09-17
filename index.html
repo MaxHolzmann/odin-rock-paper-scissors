@@ -5,17 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper Scissors</title>
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <div>   
-        <button>Play Game!</button>
+        <button id="playgamebtn">Play Game!</button>
     </div>
 
-    <div>
-        <button>Rock</button>
-        <button>Paper</button>
-        <button>Scissors</button>
+    <div id="hidden" class="hidden">
+        <button id="rock" onclick="playRound('rock')">Rock</button>
+        <button id="paper" onclick="playRound('paper')">Paper</button>
+        <button id="scissors" onclick="playRound('scissors')">Scissors</button>
+        <div><p id="gametext"></p></div>
     </div>
     
 </body>

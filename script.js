@@ -1,29 +1,9 @@
-// Thinking through the game! 
+document.getElementById('playgamebtn').addEventListener('click', () =>  {
+console.log('Event listener is working')
 
-/* 
+document.getElementById('hidden').style = "display: flex";
 
-Played against a Computer
-Computer function will be called computerPlay()
-computerPlay will return a randomly generated string, Rock/Paper/Scissors
-
-playRound function for user
-Make input non case-sensitive
-playRound has two parameters, playerSelection and computerSelection.
-
--- LOGIC --
-Rock beats Scissors
-Paper beats Rock
-Scissors Beats paper
-
-After a single game, code for multiple games using a for loop.
-I will begin this after finishing a single game. 
-
-
--- TO DO --
-- add log for prompt response of cancel
--"best of 3"
-
-*/ 
+})
 
 const getRandomInt = () => {
     min = 0;
@@ -31,10 +11,9 @@ const getRandomInt = () => {
     return Math.floor(Math.random() * (max - min) + min)
 }
 
-const playRound = () => {
+const playRound = (playerValue) => {
     const computerSelection = getRandomInt();
-    let playerSelection = prompt("Rock, Paper or Scissors?");
-    let playerValue = playerSelection.toLowerCase().replace("0", "o").replace(" ", "");
+    const gameText = document.getElementById('gametext');
 
     /* 
     I used the Math.random() function to randomly generate numbers 0-2
@@ -47,35 +26,45 @@ const playRound = () => {
 
     */
 
+
+
+
+    /* 
+    -- transition to GUI --
+
+    -hide player options until player selects "Play Game! 
+        use CSS to show hidden buttons upon selecting playgame? using an event listener! 
+    */
+
     if(playerValue === "rock") {
         console.log('You entered ' + playerValue + ', which is rock!');
         if(computerSelection == 0) {
-            console.log('Tie! Bot selected Rock!')
+            gameText.textContent = "Tie! Bot selected Rock!"
         } else if (computerSelection == 1) {
-            console.log('Bot wins! Bot selected Paper.')
+            gameText.textContent = 'Bot wins! Bot selected Paper.'
         } else {
-            console.log("You win! Bot selected Scissors.")
+            gameText.textContent ="You win! Bot selected Scissors."
         }
 
 
     } else if(playerValue === "paper") {
         console.log('You entered '+ playerValue + ', which is paper!');
         if(computerSelection == 0) {
-            console.log('You win! The bot selected Rock.')
+            gameText.content = 'You win! The bot selected Rock.'
         } else if (computerSelection == 1) {
-            console.log('Tie! Bot selected Paper.')
+            gameText.textContent = 'Tie! Bot selected Paper.'
         } else {
-            console.log("Bot wins! It selected Scissors. ")
+            gameText.textContent = "Bot wins! It selected Scissors. "
         }
 
     } else if (playerValue === "scissors") {
         console.log('You entered ' + playerValue + ', which is scissors!')
         if(computerSelection == 0) {
-            console.log('Bot wins! It selected Rock.')
+            gameText.textContent = 'Bot wins! It selected Rock.'
         } else if (computerSelection == 1) {
-            console.log('You win! Bot selected Paper.')
+            gameText.textContent = 'You win! Bot selected Paper.'
         } else {
-            console.log("Tie! Bot selected Scissors.")
+            gameText.textContent = "Tie! Bot selected Scissors."
         }
     } else {    
         console.log("You did not enter a good input! " + playerValue);
