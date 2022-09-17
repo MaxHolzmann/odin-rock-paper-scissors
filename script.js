@@ -27,13 +27,10 @@ const playRound = (playerValue) => {
     */
 
 
+    /*
+    -- TO DO --
 
-
-    /* 
-    -- transition to GUI --
-
-    -hide player options until player selects "Play Game! 
-        use CSS to show hidden buttons upon selecting playgame? using an event listener! 
+    Add score keeping, until bot or person reaches 5.
     */
 
     if(playerValue === "rock") {
